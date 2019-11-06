@@ -1,0 +1,36 @@
+.icon{
+    margin-right: 15px
+}
+
+.container {
+    background: #FFFFFF;
+    max-width: 650px;
+    padding: 45px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 15px;
+}
+
+.back
+{
+    width: 100vw;
+    height: 100vh;
+    background-color: #673ab72e;
+}
+
+.element-inline{
+    width: 100%
+}
+
+.extend-right
+{
+    padding-right: 0px;
+}
+
+.btngrid .dx-button-mode-contained.dx-button-success
+{
+    background-color: #673ab7;
+}

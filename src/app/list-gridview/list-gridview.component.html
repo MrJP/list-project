@@ -1,0 +1,46 @@
+<div>
+    <div class="col-sm-12">
+        <div class="row">
+            <div class="offset-8 col-sm-4 extend-right">
+                <button mat-raised-button color="primary" class="element-inline flex" (click)="additem(0,null)">New Item</button>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <dx-data-grid id="gridContainer" [dataSource]="_list" [showBorders]="true" keyExpr="id"
+                [columnAutoWidth]="true" noDataText="Nothing to show"
+                [masterDetail]="{ enabled: true, template: 'detail' }" rowAlternationEnabled="true"  [height]="600">
+                <dxo-filter-row visible="true"></dxo-filter-row>
+                <dxo-paging [pageSize]="10"></dxo-paging>   
+                <dxo-pager [showPageSizeSelector]="true" [allowedPageSizes]="[5, 10, 20]" [showInfo]="true" [visible]="true" >
+                </dxo-pager>
+
+                <dxi-column dataField="name" caption="Item"></dxi-column>
+                <dxi-column caption="Actions" dataField="id" cellTemplate="item_template" alignment="center"
+                    [width]="150" [allowGrouping]="false" cssClass="bullet"></dxi-column>
+
+                <div *dxTemplate="let parent of 'detail'">
+                    <dx-data-grid [dataSource]="parent.data.children" [showBorders]="true" [columnAutoWidth]="true" noDataText="Nothing to show"> 
+                        <dxi-column dataField="name" caption="Item"></dxi-column>
+                        <dxi-column caption="Actions" dataField="id" cellTemplate="item_template_children" alignment="center"
+                            [width]="150" [allowGrouping]="false" cssClass="bullet"></dxi-column>
+                            <div *dxTemplate="let item of 'item_template_children'">
+                                <div class="chart-cell">
+                                    <dx-button icon="fa fa-times" text="" class="icon" type="danger" (click)="delete(item.data)">
+                                    </dx-button>
+                                </div>
+                            </div>
+                    </dx-data-grid>
+                </div>
+                <div *dxTemplate="let item of 'item_template'">
+                    <div class="chart-cell">
+                        <dx-button icon="fa fa-plus btngrid" text="" class="icon"  type="success" (click)="additem(item.data)">
+                        </dx-button>
+                        <dx-button icon="fa fa-times" text="" class="icon" type="danger" (click)="delete(item.data)">
+                        </dx-button>
+                    </div>
+                </div>
+            </dx-data-grid>
+        </div>
+    </div>
+</div>

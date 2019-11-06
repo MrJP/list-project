@@ -1,0 +1,22 @@
+<mat-dialog-content class="mat-typography">
+    <div class="contain">
+        <div class="body">
+            <div class="row">
+                <div class="col-12">
+                    <form [formGroup]="FormGroupItem">
+                        <mat-form-field class="element-inline">
+                            <input type="text" matInput placeholder="Name" [(ngModel)]="ItemName"
+                                formControlName="txtName" autocomplete="off" maxlength="30">
+                        </mat-form-field>
+                    </form>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-6"><button mat-raised-button color="primary" class="element-inline flex"
+                        (click)="add()">Add</button></div>
+                <div class="col-sm-6"><button mat-raised-button mat-button class="flex element-inline" (click)="close()">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</mat-dialog-content>
